@@ -1,0 +1,11 @@
+Model Information:
+* title:	Spray
+* source:	https://sketchfab.com/3d-models/spray-f7e5d2a1141a461eaa00e5ae46286ed9
+* author:	dn3dstudio (https://sketchfab.com/dn3dstudio)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Spray" (https://sketchfab.com/3d-models/spray-f7e5d2a1141a461eaa00e5ae46286ed9) by dn3dstudio (https://sketchfab.com/dn3dstudio) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

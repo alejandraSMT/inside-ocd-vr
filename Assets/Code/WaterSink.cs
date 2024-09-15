@@ -30,15 +30,16 @@ public class WaterSink : MonoBehaviour
             currentWaterTube.SetActive(true);
             WaterSphere.SetActive(true);
 
-            Debug.Log("El flujo de agua ha comenzado");
+            Debug.Log("Se abrio el lavadero");
+            GameManager.Instance.WaterActivate = true;
             comenzo = true;
             
         }else{
             currentWaterTube.SetActive(false);
             WaterSphere.SetActive(false);
 
-            Debug.Log("El flujo de agua ha acabado");
-            Debug.Log("El flujo de agua ha acabado");
+            Debug.Log("Se cerro el lavadero");
+            
             comenzo = false;
         }
 

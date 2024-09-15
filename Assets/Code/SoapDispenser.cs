@@ -39,7 +39,8 @@ public class SoapDispenser : MonoBehaviour
             GameObject aux =  currentBubbles;
             currentBubbles.SetActive(true);
             aux.GetComponent<ParticleSystem>().Play();
-            Debug.Log("se puso Play");    
+            Debug.Log("Se agarro jabon");
+            GameManager.Instance.SoapActivate = true;    
             //StartCoroutine(Wait());
             //aux.GetComponent<ParticleSystem>().Pause();  
             //Debug.Log("se puso Pause");   

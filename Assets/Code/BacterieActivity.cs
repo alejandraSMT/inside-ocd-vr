@@ -13,15 +13,15 @@ public class BacterieActivity : MonoBehaviour
     public GameObject bubbles;
     public GameObject hand;
     public float fadeSpeed = 0.5f;
+    private bool finishGame = false;
     public bool cleaningInProgress = false;  // Para controlar si ya se está limpiando
-    public int washCount = 0;                // Contador de lavados
-    public int maxWashes = 5;                // Número máximo de lavados
     public Material[] bacterieMaterials;     // Materiales para las bacterias
 
     public void Awake()
     {
         Debug.Log($"Bienvenido al juego de lavado de manos....");
         bubbles.SetActive(false);
+       
         // Inicializa los materiales de las bacterias
         bacterieMaterials = new Material[]
         {
@@ -40,49 +40,36 @@ public class BacterieActivity : MonoBehaviour
         }
     }
 
-    // Método que se llama cuando se empieza a limpiar las manos
-    public void Update(){
-        if(GameManager.Instance.RightHandFinished == true && GameManager.Instance.LeftHandFinished == true){
-                washCount++;
-                if(hand.name == "RightHand"){
-                        GameManager.Instance.RightHandFinished = false;
-                }else if(hand.name == "LeftHand"){
-                        GameManager.Instance.LeftHandFinished = false;
-                }
-                StartCoroutine(ResetCleaning());
-        }
-
-        if(washCount>0 && washCount < maxWashes){
-            Debug.Log("Lavado #"+ washCount+ " terminado." + "Empiece el lavado #"+ (washCount+1));
-        }
-        else if(washCount == maxWashes){
+    private void Update() {
+        if(GameManager.Instance.washCount == GameManager.Instance.maxWashes && !finishGame){
             foreach (var bacterie in new GameObject[] { bacterie1, bacterie2, bacterie3, bacterie4, bacterie5, bacterie6 })
             {
                 bacterie.SetActive(false);
                 
             }
-            bubbles.SetActive(false);
-            bubbles.GetComponent<ParticleSystem>().Clear();
+            //bubbles.SetActive(false);
+            //bubbles.GetComponent<ParticleSystem>().Clear();
             Debug.Log($"Ahora estas completamente limpio :)");
+            finishGame = true;
         }
     }
+
+    // Método que se llama cuando se empieza a limpiar las manos
     public void CleanHands()
     {
         if (!cleaningInProgress && GameManager.Instance.WaterActivate == true && GameManager.Instance.SoapActivate == true)  // Si no estamos limpiando y no hemos alcanzado el límite
         {
-           
-            if(washCount < maxWashes){
                 //Debug.Log("Lavado #"+ washCount+ " terminado." + "Empiece el lavado #"+ (washCount+1));
-                StartCoroutine(FadeOutBacteria());
-                bubbles.SetActive(true);
-                bubbles.GetComponent<ParticleSystem>().Play();
+                //bubbles.SetActive(true);
+                //bubbles.GetComponent<ParticleSystem>().Play();
+            if(GameManager.Instance.washCount < GameManager.Instance.maxWashes){
+                FadeOutBacteria();
             }
-            
-           
+            GameManager.Instance.VerifyCleanedHands();
         }
     }
 
-    public IEnumerator FadeOutBacteria()
+    public void FadeOutBacteria()
     {
         // Reduce el valor del Alpha en un 10% para cada material
         foreach (var material in bacterieMaterials)
@@ -108,40 +95,17 @@ public class BacterieActivity : MonoBehaviour
             if(color.a == 0){
                     if(hand.name == "RightHand"){
                         GameManager.Instance.RightHandFinished = true;
+                        //bubbles.GetComponent<ParticleSystem>().Stop();
                         Debug.Log($"Lavado terminado en Mano Derecha");
                     }
                     else if(hand.name == "LeftHand"){
                         GameManager.Instance.LeftHandFinished = true;
+                        //bubbles.GetComponent<ParticleSystem>().Stop();
                         Debug.Log($"Lavado terminado en Mano Izquierda");
                     }
                 }
             
         }
-
-        // Espera un segundo antes de volver a activar las bacterias
-        yield return new WaitForSecondsRealtime(1f);
     }
-
-    public IEnumerator ResetCleaning()
-    {
-        // Espera un segundo antes de volver a activar las bacterias
-        yield return new WaitForSecondsRealtime(1f);
-
-        
-            // Reactiva todas las bacterias
-            foreach (var material in bacterieMaterials)
-            {
-                Color color = material.color;
-                color.a = 1;
-                material.color = color;
-                    
-                   
-
-                   
-            }
-            
-        }
-
-     
     
 }

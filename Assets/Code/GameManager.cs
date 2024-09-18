@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject rightHand;
     public GameObject leftHand;
+
+    public GameObject canvasTimer;
+    private float cleaningTimer = 0.0f;
+    public TextMeshProUGUI timeTextBox;
+
+    public bool gameFinish;
    
     private void Awake()
     {
@@ -32,18 +39,17 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-       
+        gameFinish = false;
     }
 
     private void Update(){
-        if(WaterActivate == true && SoapActivate == true){
-
-        
+        if(WaterActivate == true && SoapActivate == true && !gameFinish){
+            canvasTimer.SetActive(true);
+            UpdatedCleaningTimer();
         Debug.Log("Ya se puede lavar las manos");
         }else{
             Debug.Log("Aun NO se puede lavar las manos");
         }
-        
         
     }
 
@@ -72,16 +78,25 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void VerifyCleanedHands()
+    public IEnumerator VerifyCleanedHands()
     {
+        yield return new WaitForSeconds(1);
         if(RightHandFinished == true && LeftHandFinished == true){
                 Debug.Log("Lavado #"+ washCount+ " terminado. " + "Empiece el lavado #"+ (washCount+1));
-                /*GameManager.Instance.RightHandFinished = false;
-                GameManager.Instance.LeftHandFinished = false;*/
-                //bubbles.GetComponent<ParticleSystem>().Stop();
                 ResetCleaning();
                 washCount++;
             }
+    }
+
+    private void UpdatedCleaningTimer()
+    {
+        cleaningTimer += Time.deltaTime * 100f;
+
+        var minutes = Mathf.FloorToInt(cleaningTimer / 60);
+        var seconds = Mathf.FloorToInt(cleaningTimer - minutes * 60);
+
+        string gameTimeClockDisplay = string.Format("{0:0}:{1:00}", minutes, seconds);
+        timeTextBox.text = gameTimeClockDisplay;
     }
     
 }

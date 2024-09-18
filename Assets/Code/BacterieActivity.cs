@@ -47,10 +47,11 @@ public class BacterieActivity : MonoBehaviour
                 bacterie.SetActive(false);
                 
             }
-            //bubbles.SetActive(false);
-            //bubbles.GetComponent<ParticleSystem>().Clear();
+            bubbles.GetComponent<ParticleSystem>().Clear();
+            bubbles.SetActive(false);
             Debug.Log($"Ahora estas completamente limpio :)");
             finishGame = true;
+            GameManager.Instance.gameFinish = true;
         }
     }
 
@@ -59,13 +60,12 @@ public class BacterieActivity : MonoBehaviour
     {
         if (!cleaningInProgress && GameManager.Instance.WaterActivate == true && GameManager.Instance.SoapActivate == true)  // Si no estamos limpiando y no hemos alcanzado el límite
         {
-                //Debug.Log("Lavado #"+ washCount+ " terminado." + "Empiece el lavado #"+ (washCount+1));
-                //bubbles.SetActive(true);
-                //bubbles.GetComponent<ParticleSystem>().Play();
             if(GameManager.Instance.washCount < GameManager.Instance.maxWashes){
+                bubbles.SetActive(true);
+                bubbles.GetComponent<ParticleSystem>().Play();
                 FadeOutBacteria();
             }
-            GameManager.Instance.VerifyCleanedHands();
+            StartCoroutine(GameManager.Instance.VerifyCleanedHands());
         }
     }
 
@@ -80,10 +80,8 @@ public class BacterieActivity : MonoBehaviour
                     // Conversión de alpha de 0-1 a 0-255
                     float alpha255 = color.a * 255;
                     Debug.Log($"Antes de reducir: {alpha255}");
-
                    
-                    alpha255 -= 0.10f * 255; // Ajusta el decremento en el rango de 0 a 255
-                    
+                    alpha255 -= 0.50f * 255; // Ajusta el decremento en el rango de 0 a 255
 
                     // Conversión de alpha de 0-255 a 0-1
                     color.a = alpha255 / 255;

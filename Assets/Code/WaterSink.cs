@@ -37,6 +37,7 @@ public class WaterSink : MonoBehaviour
         }else{
             currentWaterTube.SetActive(false);
             WaterSphere.SetActive(false);
+            GameManager.Instance.WaterActivate = false;
 
             Debug.Log("Se cerro el lavadero");
             

@@ -9,6 +9,8 @@ public class WaterSink : MonoBehaviour
 
     bool comenzo = false;         // Control de estado del agua
 
+    [SerializeField] GameObject indicatorUI;
+
     // Inicializa el estado de los objetos
     public void Awake()
     {
@@ -29,18 +31,16 @@ public class WaterSink : MonoBehaviour
             
             currentWaterTube.SetActive(true);
             WaterSphere.SetActive(true);
-
             Debug.Log("Se abrio el lavadero");
             GameManager.Instance.WaterActivate = true;
+            indicatorUI.SetActive(false);
             comenzo = true;
             
         }else{
             currentWaterTube.SetActive(false);
             WaterSphere.SetActive(false);
             GameManager.Instance.WaterActivate = false;
-
             Debug.Log("Se cerro el lavadero");
-            
             comenzo = false;
         }
 

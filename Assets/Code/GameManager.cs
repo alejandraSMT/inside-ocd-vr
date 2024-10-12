@@ -17,6 +17,15 @@ public class GameManager : MonoBehaviour
     public bool RightHandFinished = false;
     public bool LeftHandFinished = false;
 
+    public bool BackpackClick = false;
+    public int ItemBackpack = 1;
+    public GameObject pencil;
+    public GameObject bottle;
+    public GameObject paper;
+    public GameObject ticket;
+    public GameObject coffee;
+    
+
     public int washCount = 0;
     public int maxWashes = 5; 
 

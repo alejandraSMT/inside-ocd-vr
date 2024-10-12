@@ -4464,6 +4464,12 @@ MonoBehaviour:
   SoapActivate: 0
   RightHandFinished: 0
   LeftHandFinished: 0
+  BackpackClick: 0
+  ItemBackpack: 1
+  PlaceToPut1: 0
+  PlaceToPut2: 0
+  PlaceToPut3: 0
+  PlaceToPut4: 0
   washCount: 0
   maxWashes: 5
   rightHand: {fileID: 220813607}
@@ -4731,9 +4737,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: c001a3fcfc5eb1743b5d94248289ff94, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 986499104}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c001a3fcfc5eb1743b5d94248289ff94, type: 3}
       insertIndex: -1
       addedObject: {fileID: 986499103}
@@ -5554,9 +5557,6 @@ PrefabInstance:
       addedObject: {fileID: 1766009389}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 03752a9a1ef9f8a4c88c510e8c96c193, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1766009388}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 03752a9a1ef9f8a4c88c510e8c96c193, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1766009387}
   m_SourcePrefab: {fileID: 100100000, guid: 03752a9a1ef9f8a4c88c510e8c96c193, type: 3}
 --- !u!1001 &559491659
@@ -6022,9 +6022,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: c001a3fcfc5eb1743b5d94248289ff94, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1930217828}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c001a3fcfc5eb1743b5d94248289ff94, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1930217827}
@@ -8544,7 +8541,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 884577856}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WaterSink, Assembly-CSharp
         m_MethodName: StartWater
         m_Mode: 1
@@ -8580,21 +8577,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &884577856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884577853}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd9d4efca8d8a54699a74ab00fb3495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWaterTube: {fileID: 0}
-  WaterSphere: {fileID: 0}
-  indicatorUI: {fileID: 0}
 --- !u!1001 &903534308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9253,7 +9235,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 986499104}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WaterSink, Assembly-CSharp
         m_MethodName: StartWater
         m_Mode: 1
@@ -9289,21 +9271,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &986499104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986499101}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd9d4efca8d8a54699a74ab00fb3495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWaterTube: {fileID: 0}
-  WaterSphere: {fileID: 0}
-  indicatorUI: {fileID: 0}
 --- !u!1001 &996506589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11988,7 +11955,7 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457434453}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoapDispenser, Assembly-CSharp
         m_MethodName: StartBubble
         m_Mode: 1
@@ -12006,20 +11973,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &1457434453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457434450}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be96574b6df836c49a56137b4a704909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentBubbles: {fileID: 0}
-  indicatorUI: {fileID: 0}
 --- !u!65 &1457434454
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12577,9 +12530,6 @@ PrefabInstance:
       addedObject: {fileID: 1457434454}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 03752a9a1ef9f8a4c88c510e8c96c193, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1457434453}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 03752a9a1ef9f8a4c88c510e8c96c193, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1457434452}
   m_SourcePrefab: {fileID: 100100000, guid: 03752a9a1ef9f8a4c88c510e8c96c193, type: 3}
 --- !u!1001 &1560111267
@@ -13070,9 +13020,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: c001a3fcfc5eb1743b5d94248289ff94, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 884577856}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: c001a3fcfc5eb1743b5d94248289ff94, type: 3}
       insertIndex: -1
       addedObject: {fileID: 884577855}
@@ -14426,7 +14373,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1766009388}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoapDispenser, Assembly-CSharp
         m_MethodName: StartBubble
         m_Mode: 1
@@ -14462,20 +14409,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &1766009388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766009385}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be96574b6df836c49a56137b4a704909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentBubbles: {fileID: 0}
-  indicatorUI: {fileID: 0}
 --- !u!65 &1766009389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15861,7 +15794,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1930217828}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WaterSink, Assembly-CSharp
         m_MethodName: StartWater
         m_Mode: 1
@@ -15897,21 +15830,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &1930217828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930217825}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd9d4efca8d8a54699a74ab00fb3495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWaterTube: {fileID: 0}
-  WaterSphere: {fileID: 0}
-  indicatorUI: {fileID: 0}
 --- !u!1001 &1971227086
 PrefabInstance:
   m_ObjectHideFlags: 0

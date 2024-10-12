@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class SendButton : MonoBehaviour
 
     public GameObject check;
     private Button button;
+    public Material vignetteMaterial;
+
+    [SerializeField] private VignetteController controller; 
 
     void Awake()
     {
@@ -25,6 +29,12 @@ public class SendButton : MonoBehaviour
             ColorBlock colorBlock = button.colors;
             colorBlock.normalColor = Color.gray;
             button.colors = colorBlock;
+
+            if(ClassroomGameManager.Instance.canUpdate)
+            {
+                controller.UpdateVignetteEffect();
+                ClassroomGameManager.Instance.canUpdate = false;
+            }
         }
         else
         {

@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject paper;
     public GameObject ticket;
     public GameObject coffee;
-    
-
+    public GameObject chocolate;
     public int washCount = 0;
     public int maxWashes = 5; 
 

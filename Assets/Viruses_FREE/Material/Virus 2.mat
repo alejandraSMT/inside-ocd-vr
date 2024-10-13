@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Virus 2
   m_Shader: {fileID: -6465566751694194690, guid: a031af290658b214ca54e0862e1290e1, type: 3}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: bd25290b509edd0478387cabc1677dbd, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,76 +22,13 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _AO_map:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Color3_Mask:
-        m_Texture: {fileID: 2800000, guid: afd72e73c523f8d49b278a318c6ccddc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ColorMask:
-        m_Texture: {fileID: 2800000, guid: afd72e73c523f8d49b278a318c6ccddc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Metallic:
-        m_Texture: {fileID: 2800000, guid: 478479e68f1539d42a02a637f147d65a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: 8ef9d4636f3a61c4faf3f5ab0c4a445b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Roughness:
-        m_Texture: {fileID: 2800000, guid: 834f8d09f6b2b8a4ba36f78ac6fdff69, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_1922ef95395f40f9a1a151af08bb73bd_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_3d99ecf239334a70ae7e66caef02e208_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_83a0df69db5248a0adce2f40326eee8a_Out_0:
-        m_Texture: {fileID: 2800000, guid: afd72e73c523f8d49b278a318c6ccddc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_84745c4a4381462fbfb506fd48c4d9ed_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture_Overlay:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BUILTIN_QueueControl: 0
-    - _BUILTIN_QueueOffset: 0
     - _Color3_Scale: 5
     - _ColorMask_Scale: 1.09
     - _ColorMask_Tile: 4.69
     - _Normal_Scale: 2
-    - _Normal_Strength: 1
-    - _Overlay_Opacity: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _Smoothness: -0.54
     m_Colors:
     - _Color_1: {r: 0, g: 0.12156863, b: 0.11352913, a: 0}
     - _Color_2: {r: 0.058823522, g: 0.41568628, b: 0.3935271, a: 0}

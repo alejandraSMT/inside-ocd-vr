@@ -10,6 +10,7 @@ public class HandWithObjectActivity : MonoBehaviour
     public GameObject paper;
     public GameObject ticket;
     public GameObject coffee;
+    public GameObject chocolate;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class HandWithObjectActivity : MonoBehaviour
         paper.SetActive(false);
         ticket.SetActive(false);
         coffee.SetActive(false);
+        chocolate.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,7 +34,9 @@ public class HandWithObjectActivity : MonoBehaviour
             ticket.SetActive(true);
         }else if(GameManager.Instance.BackpackClick == true && GameManager.Instance.ItemBackpack == 5){
             coffee.SetActive(true);
-        }else{
+        }else if(GameManager.Instance.BackpackClick == true && GameManager.Instance.ItemBackpack == 6){
+            chocolate.SetActive(true);
+        }    else{
 
         }
     }

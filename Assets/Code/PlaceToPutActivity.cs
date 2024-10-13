@@ -43,9 +43,15 @@ public class PlaceToPutActivity : MonoBehaviour
              ObjectToPut.SetActive(true);
         }else if(GameManager.Instance.ItemBackpack == 5 && GameManager.Instance.BackpackClick == true){
             //cafe y estante
-             ObjectToPut.SetActive(true);
-             GameManager.Instance.coffee.SetActive(false);
+            GameManager.Instance.ItemBackpack = 6;
+            GameManager.Instance.coffee.SetActive(false);
+            GameManager.Instance.BackpackClick = false;
+            ObjectToPut.SetActive(true);
+        }else if(GameManager.Instance.ItemBackpack == 6 && GameManager.Instance.BackpackClick == true){
+            //cafe y estante
+             GameManager.Instance.chocolate.SetActive(false);
              GameManager.Instance.BackpackClick = false;
+             ObjectToPut.SetActive(true);
         }
     }
 

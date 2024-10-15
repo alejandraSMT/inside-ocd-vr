@@ -6,6 +6,7 @@ public class SoapDispenser : MonoBehaviour
 {
 
     public GameObject currentBubbles;
+    [SerializeField] private GameObject indicatorUI;
     
     // Prefab de burbujas
     //crear un bool  si comenzo
@@ -39,7 +40,12 @@ public class SoapDispenser : MonoBehaviour
             GameObject aux =  currentBubbles;
             currentBubbles.SetActive(true);
             aux.GetComponent<ParticleSystem>().Play();
-            Debug.Log("se puso Play");    
+            Debug.Log("Se agarro jabon");
+            GameManager.Instance.SoapActivate = true;  
+            if(indicatorUI != null)
+            {
+                Destroy(indicatorUI);
+            }
             //StartCoroutine(Wait());
             //aux.GetComponent<ParticleSystem>().Pause();  
             //Debug.Log("se puso Pause");   

@@ -11,6 +11,8 @@ public class ClassroomGameManager : MonoBehaviour
     public bool isChecked = false;
 
     [HideInInspector] public bool canUpdate;
+    [HideInInspector] public bool canFinish = false;
+    [HideInInspector] public bool finished = false;
 
     private void Awake()
     {
@@ -28,5 +30,10 @@ public class ClassroomGameManager : MonoBehaviour
         countChecked += 1;
         canUpdate = true;
         Debug.Log("COUNT CHECKED: " + countChecked);
+
+        if (countChecked == 4) {
+            canFinish = true;
+            Debug.Log("FINISH GAME");
+        }
     }
 }

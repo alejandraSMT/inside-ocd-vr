@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using static UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticsUtility;
 
 public class ComputerScript : MonoBehaviour
 {
@@ -14,6 +15,19 @@ public class ComputerScript : MonoBehaviour
 
     private bool triggerPulled = false;
     public InputActionReference triggerInputActionReference;
+
+    private bool alreadyClicked = false;
+
+    [SerializeField]
+    private GameObject inExamScene;
+    [SerializeField]
+    private GameObject finishScreen;
+
+    [SerializeField]
+    private TimerController contoller;
+
+    [SerializeField]
+    private AudioSource src;
 
     void Update()
     {
@@ -41,6 +55,7 @@ public class ComputerScript : MonoBehaviour
 
     public void CheckboxClicked()
     {
+        src.Play();
         if (ClassroomGameManager.Instance.countChecked < 4)
         {
             if(!ClassroomGameManager.Instance.isChecked)
@@ -53,26 +68,23 @@ public class ComputerScript : MonoBehaviour
                 colorBlock.normalColor = Color.black;
                 sendButton.colors = colorBlock;
             }
-            /*if (ClassroomGameManager.Instance.isChecked)
-            {
-                ClassroomGameManager.Instance.isChecked = false;
-                check.SetActive(false);
-            }
-            else
-            {
-                ClassroomGameManager.Instance.isChecked = true;
-                check.SetActive(true);
-                ClassroomGameManager.Instance.updateCountChecked();
-            }*/
         }
         else
         {
-            Debug.Log("TERMINÓ EL JUEGO");
+            ClassroomGameManager.Instance.canFinish = true;
         }
     }
 
     public void SendExam()
     {
-        Debug.Log("CLICK al final");
+        src.Play();
+        if (ClassroomGameManager.Instance.canFinish && !ClassroomGameManager.Instance.finished)
+        {
+            alreadyClicked = true;
+            ClassroomGameManager.Instance.finished = true;
+            contoller.GetComponent<TimerController>().StopTimer();
+            inExamScene.SetActive(false);
+            finishScreen.SetActive(true);
+        }
     }
 }

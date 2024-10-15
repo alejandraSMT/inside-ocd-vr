@@ -61,7 +61,7 @@ public class BackpackCollision : MonoBehaviour
             yield return null;
         }
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("BathroomScene");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Bus");
         asyncLoad.allowSceneActivation = false;
         while (!asyncLoad.isDone)
         {

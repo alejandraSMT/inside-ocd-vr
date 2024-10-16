@@ -5416,7 +5416,7 @@ MonoBehaviour:
   rightHapticPlayer: {fileID: 108379203}
   leftHandTransform: {fileID: 824186204}
   rightHandTransform: {fileID: 108379197}
-  m_HandsShake: 1
+  m_HandsShake: 0
 --- !u!4 &524025136
 Transform:
   m_ObjectHideFlags: 0

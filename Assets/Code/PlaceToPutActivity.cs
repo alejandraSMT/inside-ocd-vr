@@ -13,7 +13,9 @@ public class PlaceToPutActivity : MonoBehaviour
         ObjectToPut.SetActive(false);
         
     }
-    
+    public void Start(){
+        GameManager.Instance.gameFinish = false;
+    }
     public void ActivityInPlace()
     {
        
@@ -53,6 +55,7 @@ public class PlaceToPutActivity : MonoBehaviour
              GameManager.Instance.BackpackClick = false;
              ObjectToPut.SetActive(true);
              GameManager.Instance.ItemBackpack = 0;
+             GameManager.Instance.gameFinish = true;
         }
     }
 

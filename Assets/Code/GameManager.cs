@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public bool WaterActivate = false;
     public bool SoapActivate = false;
+    public RectTransform progressBar;
 
     public bool RightHandFinished = false;
     public bool LeftHandFinished = false;
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Lavado #"+ washCount+ " terminado. " + "Empiece el lavado #"+ (washCount+1));
                 ResetCleaning();
                 washCount++;
+                UpdateProgressBar();
             }
     }
 
@@ -122,6 +124,15 @@ public class GameManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void UpdateProgressBar()
+    {
+        // Calcula el porcentaje de lavados completos
+        float progress = (float)washCount / maxWashes;
+
+        // Ajusta el tamaño de la barra de progreso
+        progressBar.localScale = new Vector3(progress, 1, 1);  // Cambia el ancho de la barra
     }
 
 }

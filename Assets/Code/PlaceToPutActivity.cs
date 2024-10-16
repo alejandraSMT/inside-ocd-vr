@@ -52,6 +52,7 @@ public class PlaceToPutActivity : MonoBehaviour
              GameManager.Instance.chocolate.SetActive(false);
              GameManager.Instance.BackpackClick = false;
              ObjectToPut.SetActive(true);
+             GameManager.Instance.ItemBackpack = 0;
         }
     }
 

@@ -18970,8 +18970,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.1195956, z: 1}
-  m_Center: {x: -0.0000013251745, y: 0.059797563, z: -0.0000002558556}
+  m_Size: {x: 1, y: 1.2327033, z: 1}
+  m_Center: {x: -0.0000025784636, y: 0.11635141, z: -0.00000049783284}
 --- !u!1001 &1490978111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22809,8 +22809,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.41118246, y: 0.41827574, z: 0.5143466}
-  m_Center: {x: 0.20559123, y: -0.00000014862043, z: 0.000001224369}
+  m_Size: {x: 0.46233454, y: 0.41827574, z: 0.5143466}
+  m_Center: {x: 0.23116729, y: -0.00000014862043, z: 0.0000029026623}
 --- !u!64 &1699165396
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24609,8 +24609,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.38324547, y: 0.41827574, z: 0.5143466}
-  m_Center: {x: 0.19162269, y: -0.000000037155107, z: 0.00000030777105}
+  m_Size: {x: 0.4163947, y: 0.41827574, z: 0.5143466}
+  m_Center: {x: 0.20819733, y: -0.000000037155107, z: 0.0000013953802}
 --- !u!114 &1879785424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82337,8 +82337,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.751454, y: 0.27738416, z: 0.9088347}
-  m_Center: {x: -0.34042403, y: -0.00000024412128, z: 0.00000029498187}
+  m_Size: {x: 0.751454, y: 0.37260878, z: 0.9088347}
+  m_Center: {x: -0.34042403, y: 0.047611546, z: 0.00000029498187}
 --- !u!114 &6238398469751907537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87756,8 +87756,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.47695255, y: 0.20614967, z: 0.47937232}
-  m_Center: {x: -0.2384763, y: -0.0037684727, z: 0.00000045578167}
+  m_Size: {x: 0.47695255, y: 0.28738943, z: 0.47937232}
+  m_Center: {x: -0.23847522, y: 0.036851402, z: 0.000004371542}
 --- !u!23 &8699021104752041338
 MeshRenderer:
   m_ObjectHideFlags: 0

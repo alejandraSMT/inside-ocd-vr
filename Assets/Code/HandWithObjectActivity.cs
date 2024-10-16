@@ -36,6 +36,7 @@ public class HandWithObjectActivity : MonoBehaviour
             coffee.SetActive(true);
         }else if(GameManager.Instance.BackpackClick == true && GameManager.Instance.ItemBackpack == 6){
             chocolate.SetActive(true);
+            
         }    else{
 
         }

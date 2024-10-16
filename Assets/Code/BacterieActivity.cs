@@ -52,6 +52,7 @@ public class BacterieActivity : MonoBehaviour
             Debug.Log($"Ahora estas completamente limpio :)");
             finishGame = true;
             GameManager.Instance.gameFinish = true;
+            GameManager.Instance.nextScene = true;
         }
     }
 

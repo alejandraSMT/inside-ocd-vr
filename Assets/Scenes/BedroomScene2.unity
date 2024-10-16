@@ -10831,6 +10831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c488702faefd9468438a312a69dcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextScene: EndScene
+  nextScene: 0
   WaterActivate: 0
   SoapActivate: 0
   RightHandFinished: 0
@@ -25456,7 +25458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1979741726
 Transform:
   m_ObjectHideFlags: 0

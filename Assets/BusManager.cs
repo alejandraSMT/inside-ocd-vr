@@ -6,10 +6,21 @@ using UnityEngine.SceneManagement;
 public class BusManager : MonoBehaviour
 {
     private bool nextScene = false;
+    [SerializeField]
+    private AutomaticVignette vignette;
     void Start()
     {
         StartCoroutine(LoadGameSceneAsync());
         StartCoroutine(StartTimer()); // Inicia el temporizador al comienzo
+    }
+
+    private void Update()
+    {
+        Debug.Log("RADIUS EN UPDATE" + vignette.radius);
+        /*while  (vignette.radius <= 0.4f)
+        {
+            vignette.UpdateVignetteEffect();
+        }*/
     }
 
     IEnumerator StartTimer()

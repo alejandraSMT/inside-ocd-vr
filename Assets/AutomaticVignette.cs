@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
 
-public class VignetteController : MonoBehaviour
+public class AutomaticVignette : MonoBehaviour
 {
     public Material vignetteMaterial;
     [HideInInspector]
@@ -13,6 +13,7 @@ public class VignetteController : MonoBehaviour
     private float decreaseAmount = 0.13f;
     private float duration = 1f; // Duración de la transición
     private float pulseSpeed = 2f;  // Velocidad del pulso
+    private float minRadiusLimit = 0.4f; // Límite mínimo del radius
 
     // Haptics
     public HapticImpulsePlayer leftHapticPlayer;
@@ -31,14 +32,13 @@ public class VignetteController : MonoBehaviour
     private Quaternion rightHandOriginalRotation;
 
     [SerializeField]
-    private bool m_HandsShake;
+    private bool m_HandsShake = true;
 
     // Intensity of visual shake
     private float shakeAmount = 0.02f;  // Ajustar para mayor o menor movimiento
 
     void Start()
     {
-        Debug.Log("VIGNETTE EN CONTROLLER :(");
         if (vignetteMaterial != null)
         {
             radius = 0.8f;
@@ -47,11 +47,22 @@ public class VignetteController : MonoBehaviour
         // Guardar las posiciones y rotaciones originales de las manos virtuales
         if (m_HandsShake)
         {
-
             leftHandOriginalPosition = leftHandTransform.localPosition;
             rightHandOriginalPosition = rightHandTransform.localPosition;
             leftHandOriginalRotation = leftHandTransform.localRotation;
             rightHandOriginalRotation = rightHandTransform.localRotation;
+        }
+
+        // Comenzar los efectos automáticamente
+        StartCoroutine(AutoStartEffects());
+    }
+
+    private IEnumerator AutoStartEffects()
+    {
+        while (true)
+        {
+            UpdateVignetteEffect(); // Ejecutar el efecto de viñeta y shake
+            yield return new WaitForSeconds(duration); // Esperar la duración antes de reiniciar el ciclo
         }
     }
 
@@ -63,14 +74,6 @@ public class VignetteController : MonoBehaviour
         float maxRadius = radius - 0.05f;
         float pulsingRadius = Mathf.Lerp(minRadius, maxRadius, Mathf.PingPong(Time.time * pulseSpeed, 1f));
         vignetteMaterial.SetFloat("_Radius", pulsingRadius);
-
-        if (ClassroomGameManager.Instance != null)
-        {
-            if (ClassroomGameManager.Instance.finished)
-            {
-                ResetVignette();
-            }
-        }
     }
 
     public void ResetVignette()
@@ -85,7 +88,7 @@ public class VignetteController : MonoBehaviour
 
     public void UpdateVignetteEffect()
     {
-        targetRadius = radius - decreaseAmount;
+        targetRadius = Mathf.Max(radius - decreaseAmount, minRadiusLimit); // Aplicar el límite de 0.4
         StartCoroutine(ChangeRadius(radius, targetRadius, duration));
 
         // Iniciar el efecto de shake háptico y visual
@@ -99,9 +102,6 @@ public class VignetteController : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        // Limita el valor mínimo del 'end' a 0.4f
-        end = Mathf.Max(end, 0.4f);
-
         while (elapsedTime < duration)
         {
             radius = Mathf.Lerp(start, end, elapsedTime / duration);
@@ -112,7 +112,6 @@ public class VignetteController : MonoBehaviour
 
         radius = end;
     }
-
 
     private void StartHapticsAndShake()
     {

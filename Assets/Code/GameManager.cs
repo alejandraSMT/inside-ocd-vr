@@ -9,7 +9,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    
+    [SerializeField]
+    private string NextScene;
+    [HideInInspector]
+    public bool nextScene = false;
     public static GameManager Instance { get; private set; }
     public bool WaterActivate = false;
     public bool SoapActivate = false;
@@ -31,12 +34,15 @@ public class GameManager : MonoBehaviour
     public GameObject rightHand;
     public GameObject leftHand;
 
-    public GameObject canvasTimer;
-    private float cleaningTimer = 0.0f;
-    public TextMeshProUGUI timeTextBox;
-
     public bool gameFinish;
-   
+
+    public VignetteController vignette;
+
+    private void Start()
+    {
+        StartCoroutine(LoadGameSceneAsync());
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -52,9 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void Update(){
         if(WaterActivate == true && SoapActivate == true && !gameFinish){
-            canvasTimer.SetActive(true);
-            UpdatedCleaningTimer();
-        Debug.Log("Ya se puede lavar las manos");
+            Debug.Log("Ya se puede lavar las manos");
         }else{
             Debug.Log("Aun NO se puede lavar las manos");
         }
@@ -63,6 +67,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetCleaning()
     {
+        if (vignette != null) { 
+            vignette.UpdateVignetteEffect();
+        }
         Material[] rightHandList = rightHand.GetComponent<BacterieActivity>().bacterieMaterials;
 
         foreach (var material in rightHandList)
@@ -96,15 +103,25 @@ public class GameManager : MonoBehaviour
             }
     }
 
-    private void UpdatedCleaningTimer()
+    IEnumerator LoadGameSceneAsync()
     {
-        cleaningTimer += Time.deltaTime * 100f;
+        while (!nextScene)
+        {
+            yield return null;
+        }
 
-        var minutes = Mathf.FloorToInt(cleaningTimer / 60);
-        var seconds = Mathf.FloorToInt(cleaningTimer - minutes * 60);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
+        asyncLoad.allowSceneActivation = false;
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(10);
+                asyncLoad.allowSceneActivation = true;
+            }
 
-        string gameTimeClockDisplay = string.Format("{0:0}:{1:00}", minutes, seconds);
-        timeTextBox.text = gameTimeClockDisplay;
+            yield return null;
+        }
     }
-    
+
 }

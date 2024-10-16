@@ -1610,9 +1610,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 23fc59362ba1e264eb5b636821ad929a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 101875984}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: 23fc59362ba1e264eb5b636821ad929a, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 101875983}
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 23fc59362ba1e264eb5b636821ad929a, type: 3}
       insertIndex: -1
@@ -1696,19 +1693,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 101875984}
-        m_TargetAssemblyTypeName: PlaceToPutActivity, Assembly-CSharp
-        m_MethodName: ActivityInPlace
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1733,20 +1718,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &101875984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101875980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24b1994173d0004db01a73d56c56d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placeObject: {fileID: 101875980}
-  ObjectToPut: {fileID: 802018366}
 --- !u!1001 &108513197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3753,11 +3724,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967bda6cd12c7c34d852681f280bdfef, type: 3}
---- !u!1 &322010058 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8998803247781539246, guid: 967bda6cd12c7c34d852681f280bdfef, type: 3}
-  m_PrefabInstance: {fileID: 322010057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &322010059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8622699268921505556, guid: 967bda6cd12c7c34d852681f280bdfef, type: 3}
@@ -5709,7 +5675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15803,7 +15769,6 @@ GameObject:
   - component: {fileID: 1289865437}
   - component: {fileID: 1289865436}
   - component: {fileID: 1289865435}
-  - component: {fileID: 1289865434}
   m_Layer: 0
   m_Name: Stand1
   m_TagString: Untagged
@@ -15826,20 +15791,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 124068508}
   m_LocalEulerAnglesHint: {x: 0, y: 270.125, z: 0}
---- !u!114 &1289865434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289865432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24b1994173d0004db01a73d56c56d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placeObject: {fileID: 1289865432}
-  ObjectToPut: {fileID: 0}
 --- !u!114 &1289865435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15887,19 +15838,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1289865434}
-        m_TargetAssemblyTypeName: PlaceToPutActivity, Assembly-CSharp
-        m_MethodName: ActivityInPlace
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -23610,7 +23549,6 @@ GameObject:
   - component: {fileID: 2038785714}
   - component: {fileID: 2038785713}
   - component: {fileID: 2038785712}
-  - component: {fileID: 2038785711}
   m_Layer: 0
   m_Name: Stand2
   m_TagString: Untagged
@@ -23633,20 +23571,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 124068508}
   m_LocalEulerAnglesHint: {x: 0, y: 270.125, z: 0}
---- !u!114 &2038785711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038785709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24b1994173d0004db01a73d56c56d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placeObject: {fileID: 2038785709}
-  ObjectToPut: {fileID: 0}
 --- !u!65 &2038785712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23715,19 +23639,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2038785711}
-        m_TargetAssemblyTypeName: PlaceToPutActivity, Assembly-CSharp
-        m_MethodName: ActivityInPlace
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -24568,9 +24480,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9182821020012449371, guid: 4962eca7bc0101b4296b846e7d3c1849, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2134069084}
-    - targetCorrespondingSourceObject: {fileID: 9182821020012449371, guid: 4962eca7bc0101b4296b846e7d3c1849, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2134069083}
     - targetCorrespondingSourceObject: {fileID: 9182821020012449371, guid: 4962eca7bc0101b4296b846e7d3c1849, type: 3}
       insertIndex: -1
@@ -24649,19 +24558,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2134069084}
-        m_TargetAssemblyTypeName: PlaceToPutActivity, Assembly-CSharp
-        m_MethodName: ActivityInPlace
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -24686,20 +24583,6 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
---- !u!114 &2134069084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134069081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24b1994173d0004db01a73d56c56d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placeObject: {fileID: 2134069081}
-  ObjectToPut: {fileID: 322010058}
 --- !u!4 &2134069085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8368884085311231201, guid: 4962eca7bc0101b4296b846e7d3c1849, type: 3}

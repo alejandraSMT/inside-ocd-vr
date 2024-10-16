@@ -56,6 +56,7 @@ public class PlaceToPutActivity : MonoBehaviour
              ObjectToPut.SetActive(true);
              GameManager.Instance.ItemBackpack = 0;
              GameManager.Instance.gameFinish = true;
+            GameManager.Instance.nextScene = true;
         }
     }
 

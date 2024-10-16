@@ -70,9 +70,16 @@ public class AutomaticVignette : MonoBehaviour
     {
         vignetteMaterial.SetFloat("_Radius", radius);
 
+        // Oscilar el radius entre -0.1 y +0.1 del valor actual cada 4 segundos
+        float oscillationTime = 4f; // Cada 4 segundos
         float minRadius = radius - 0.1f;
-        float maxRadius = radius - 0.05f;
-        float pulsingRadius = Mathf.Lerp(minRadius, maxRadius, Mathf.PingPong(Time.time * pulseSpeed, 1f));
+        float maxRadius = radius + 0.1f;
+
+        // Aplicar una oscilación suave entre el valor mínimo y máximo usando Mathf.PingPong
+        float oscillation = Mathf.PingPong(Time.time / oscillationTime, 1f); // Normalizado entre 0 y 1
+        float pulsingRadius = Mathf.Lerp(minRadius, maxRadius, oscillation);
+
+        // Aplicar el nuevo radius oscilante al material
         vignetteMaterial.SetFloat("_Radius", pulsingRadius);
     }
 

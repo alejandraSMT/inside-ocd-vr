@@ -25,7 +25,7 @@ public class BusManager : MonoBehaviour
 
     IEnumerator StartTimer()
     {
-        yield return new WaitForSeconds(25); // Espera 25 segundos
+        yield return new WaitForSeconds(15); // Espera 15 segundos
         nextScene = true; // Activa la escena
     }
 

@@ -11,9 +11,10 @@ public class AutomaticVignette : MonoBehaviour
     private float smoothSpeed = 0.1f;
     private float targetRadius;
     private float decreaseAmount = 0.13f;
-    private float duration = 1f; // Duración de la transición
-    private float pulseSpeed = 2f;  // Velocidad del pulso
-    private float minRadiusLimit = 0.4f; // Límite mínimo del radius
+    private float duration = 1f;  // Duración de la transición
+    private float pulseSpeed = 2f; // Velocidad del pulso
+    private float minRadiusLimit = 0.3f; // Límite mínimo del radius
+    private float oscillationTime = 5f;  // Tiempo entre oscilaciones
 
     // Haptics
     public HapticImpulsePlayer leftHapticPlayer;
@@ -61,25 +62,17 @@ public class AutomaticVignette : MonoBehaviour
     {
         while (true)
         {
-            UpdateVignetteEffect(); // Ejecutar el efecto de viñeta y shake
-            yield return new WaitForSeconds(duration); // Esperar la duración antes de reiniciar el ciclo
+            UpdateVignetteEffect();  // Ejecutar el efecto de viñeta y shake
+            yield return new WaitForSeconds(oscillationTime);  // Esperar 2 segundos antes de reiniciar el ciclo
         }
     }
 
     void Update()
     {
-        vignetteMaterial.SetFloat("_Radius", radius);
-
-        // Oscilar el radius entre -0.1 y +0.1 del valor actual cada 4 segundos
-        float oscillationTime = 4f; // Cada 4 segundos
+        // Oscilar el radius entre -0.1 y +0.05 del valor actual
         float minRadius = radius - 0.1f;
-        float maxRadius = radius + 0.1f;
-
-        // Aplicar una oscilación suave entre el valor mínimo y máximo usando Mathf.PingPong
-        float oscillation = Mathf.PingPong(Time.time / oscillationTime, 1f); // Normalizado entre 0 y 1
-        float pulsingRadius = Mathf.Lerp(minRadius, maxRadius, oscillation);
-
-        // Aplicar el nuevo radius oscilante al material
+        float maxRadius = radius - 0.05f;
+        float pulsingRadius = Mathf.Lerp(minRadius, maxRadius, Mathf.PingPong(Time.time * pulseSpeed, 1f));
         vignetteMaterial.SetFloat("_Radius", pulsingRadius);
     }
 
@@ -95,7 +88,7 @@ public class AutomaticVignette : MonoBehaviour
 
     public void UpdateVignetteEffect()
     {
-        targetRadius = Mathf.Max(radius - decreaseAmount, minRadiusLimit); // Aplicar el límite de 0.4
+        targetRadius = radius - decreaseAmount;
         StartCoroutine(ChangeRadius(radius, targetRadius, duration));
 
         // Iniciar el efecto de shake háptico y visual
@@ -108,6 +101,9 @@ public class AutomaticVignette : MonoBehaviour
     private IEnumerator ChangeRadius(float start, float end, float duration)
     {
         float elapsedTime = 0f;
+
+        // Limita el valor mínimo del 'end' a 0.4f
+        end = Mathf.Max(end, 0.4f);
 
         while (elapsedTime < duration)
         {

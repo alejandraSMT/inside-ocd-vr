@@ -82,7 +82,7 @@ public class BacterieActivity : MonoBehaviour
                     float alpha255 = color.a * 255;
                     Debug.Log($"Antes de reducir: {alpha255}");
                    
-                    alpha255 -= 0.50f * 255; // Ajusta el decremento en el rango de 0 a 255
+                    alpha255 -= 0.20f * 255; // Ajusta el decremento en el rango de 0 a 255
 
                     // Conversión de alpha de 0-255 a 0-1
                     color.a = alpha255 / 255;

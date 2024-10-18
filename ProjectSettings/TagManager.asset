@@ -9,6 +9,8 @@ TagManager:
   - Interactable
   - Character
   - Hand
+  - BathroomInteractable
+  - Bacteries
   layers:
   - Default
   - TransparentFX
